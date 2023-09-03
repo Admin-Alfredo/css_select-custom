@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+  font-family: Inter, sans-serif;
+  background-color: #0c0c0d;
+  color: #edeaf0;
+
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.select {
+  padding: 6rem;
+}
+#category-select {
+  position: relative;
+}
+#category-select label {
+  font-size: 0.78rem;
+  letter-spacing: 0.0255rem;
+}
+
+#select-button {
+  margin-top: 0.6rem;
+  display: flex;
+  padding: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #252529;
+  border-radius: 0.375rem;
+  background-color: #17171a;
+}
+#selected-value {
+  font-size: 0.875rem;
+  letter-spancing: 0.82625rem;
+}
+#chevrons,
+#selected-value {
+  color: #afabb6;
+}
+#chevrons [data-lucide="chevron-up"] {
+  display: none;
+}
+#chevrons {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+#chevrons svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+input#options-view-button {
+  all: unset;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+#options-view-button:focus + #select-button,
+#options-view-button:checked + #select-button {
+  outline: 1px solid #a881e6;
+}
+
+#category-select:has(#options-view-button:checked) label,
+#category-select:has(#options-view-button:checked)
+  #select-button
+  #chevrons
+  [data-lucide="chevron-up"] {
+  color: #a881e6;
+}
+
+#category-select:has(#options-view-button:checked)
+  #select-button
+  #chevrons
+  [data-lucide="chevron-up"] {
+  display: block;
+}
+#category-select:has(#options-view-button:checked)
+  #select-button
+  #chevrons
+  [data-lucide="chevron-down"] {
+  display: none;
+}
+#category-select:has(#options-view-button:checked) + #options {
+  display: block;
+}
+
+#options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  margin-top: 15px;
+  background-color: #17171a;
+  border: 1px solid #252529;
+  border-radius: 6px;
+}
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  /*   width: 100%; */
+  border-bottom: 1px solid #252529;
+  color: #fff;
+  padding: 0.825rem;
+}
+.option:hover {
+  background-color: #252529;
+  cursor: pointer;
+}
+.option span {
+  color: #fbf9fe;
+}
+.option svg {
+  width: 1rem;
+  height: 1rem;
+}
+.option svg:last-child {
+  margin-left: auto;
+}
+.option input {
+  all: unset;
+  position: absolute;
+  inset: 0;
+  outline: 1px solid transparent;
+}
+.option:has(input:focus){
+  outline: 1px solid #a881e6;
+}
+.option svg {
+  display: none;
+}
+.option:has(input:checked) svg {
+  display: initial;
+}
